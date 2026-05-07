@@ -67,6 +67,22 @@ We welcome contributions! If you are interested in helping develop the Phase II 
 4.  **Push to the branch** (`git push origin feature/NameOfBranchOrFeature`).
 5.  **Open a Pull Request**.
 
+## Data Sources
+
+All datasets used in this project cover King County, Washington and are organized by Health Reporting Area (HRA) — geographic subdivisions defined by Public Health — Seattle & King County for sub-county health reporting.
+
+| Dataset | Source | Notes |
+|---|---|---|
+| **Breast Cancer Incidence** | [Washington State Cancer Registry via King County Community Health Indicators (CHI)](https://kingcounty.gov/en/dept/dph/about-king-county/about-public-health/data-reports/population-health-data/community-health-indicators/washington-state-cancer-registry) | Age-adjusted incidence rate per 100,000 females, 2018–2022. Includes comparison to King County average (145.2 per 100k). |
+| **Poverty Rate** | [King County Community Health Indicators — Economic Hardship](https://kingcounty.gov/en/dept/dph/about-king-county/about-public-health/data-reports/population-health-data/community-health-indicators) | Percent of adults below the federal poverty level by HRA. |
+| **Health Insurance Coverage** | [King County Community Health Indicators — Access to Care](https://kingcounty.gov/en/dept/dph/about-king-county/about-public-health/data-reports/population-health-data/community-health-indicators) | Percent of adults uninsured by HRA. |
+| **Median Household Income** | [King County Community Health Indicators — Economic Hardship](https://kingcounty.gov/en/dept/dph/about-king-county/about-public-health/data-reports/population-health-data/community-health-indicators) | Median household income by HRA, sourced from the American Community Survey (ACS). |
+| **Race & Ethnicity** | [King County Community Health Indicators — Demographics](https://kingcounty.gov/en/dept/dph/about-king-county/about-public-health/data-reports/population-health-data/community-health-indicators) | Population counts and percentages by race/ethnicity group per HRA, sourced from the ACS. |
+
+Raw data was downloaded from the CHI Tableau dashboards and transformed into JSON using `backend/scripts/transformData.js`. The CHI portal provides instructions for downloading underlying data [here](https://cdn.kingcounty.gov/-/media/king-county/depts/dph/documents/about-public-health/data-reports/download-chi-data.pdf).
+
+> **Note:** Breast cancer incidence rates reflect diagnosis counts, not individual risk. Rates are age-adjusted and should not be interpreted as the likelihood of any individual developing cancer.
+
 ## License
 Distributed under the **MIT License**. See `LICENSE` file for more information.
 
