@@ -1,101 +1,135 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
+const navItems = [
+  { path: "/map", label: "Map" },
+  { path: "/about", label: "Primer" },
+  { path: "/data-sources", label: "Methodology" },
+  { path: "/resources", label: "Find Screening" },
+  { path: "/faq", label: "About" },
+];
 
 function Navbar() {
   const location = useLocation();
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-  const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
-  };
-
-  const isActive = (path) => location.pathname === path ? "bg-gray-200 text-black" : "";
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <header className="w-full bg-white border-b border-zinc-300 font-inter pb-
-    ">
-      <nav className="flex justify-between items-center p-9 max-w-screen-xl mx-auto !important">
-        {/* Logo */}
-        <div className="text-xl font-bold text-black">
-          <Link to="/" className="no-underline">
-          </Link>
-        </div>
+    <nav
+      className="sticky top-0 z-50"
+      style={{
+        backgroundColor: "var(--surface)",
+        borderBottom: "1px solid var(--rule)",
+      }}
+    >
+      <div className="max-w-[1200px] mx-auto px-10">
 
-        {/* Desktop Navigation */}
-        <div className="absolute top-0 left-20 flex space-x-6 p-4">
-          <Link to="/"
-            className={`text-black py-2 px-4 rounded-lg transition-colors ${isActive('/')}`}
-          >
-            Home
-          </Link>
+        {/* Desktop */}
+        <div className="hidden md:flex items-center h-[72px]">
           <Link
-            to="/Map"
-            className={`text-black py-2 px-4 rounded-lg transition-colors ${isActive('/Map')}`}
+            to="/"
+            className="mr-10 no-underline"
+            style={{ color: "var(--ink)" }}
           >
-            Map
+            <span
+              style={{
+                fontFamily: "var(--font-serif)",
+                fontSize: "20px",
+                fontWeight: 600,
+                letterSpacing: "-0.01em",
+              }}
+            >
+              Health4All
+            </span>
           </Link>
-          <Link to="/Resources"
-            className={`text-black py-2 px-4 rounded-lg transition-colors ${isActive('/Resources')}`}
-          >
-            Resources
-          </Link>
-          <Link to="/About"
-            className={`text-black py-2 px-4 rounded-lg transition-colors ${isActive('/About')}`}
-          >
-            About
-          </Link>
+
+          <div className="flex items-center gap-7 ml-auto">
+            {navItems.map(({ path, label }) => {
+              const active = location.pathname === path;
+              return (
+                <Link
+                  key={path}
+                  to={path}
+                  className="no-underline transition-colors"
+                  style={{
+                    fontFamily: "var(--font-sans)",
+                    fontSize: "15px",
+                    fontWeight: 500,
+                    color: active ? "var(--ink)" : "var(--ink-soft)",
+                    borderBottom: active
+                      ? "2px solid var(--brand)"
+                      : "2px solid transparent",
+                    paddingBlock: "24px",
+                  }}
+                >
+                  {label}
+                </Link>
+              );
+            })}
+          </div>
         </div>
 
-        {/* Mobile Hamburger Menu */}
-        <button className="md:hidden text-black" onClick={toggleMobileMenu}>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            className="w-6 h-6"
+        {/* Mobile header row */}
+        <div className="md:hidden flex items-center justify-between h-[64px]">
+          <Link
+            to="/"
+            className="no-underline"
+            style={{
+              fontFamily: "var(--font-serif)",
+              fontSize: "18px",
+              fontWeight: 600,
+              color: "var(--ink)",
+            }}
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M4 6h16M4 12h16M4 18h16"
-            />
-          </svg>
-        </button>
-      </nav>
-
-      {/* Mobile Navigation */}
-      {isMobileMenuOpen && (
-        <div className="md:hidden bg-white border-t border-zinc-300 py-4 space-y-4">
-          <a
-            href="#home"
-            className="block text-black hover:bg-gray-200 hover:text-black py-2 px-4 rounded-lg transition-colors text-center"
+            Health4All
+          </Link>
+          <button
+            onClick={() => setMobileOpen(!mobileOpen)}
+            aria-label="Toggle menu"
+            style={{ color: "var(--ink)" }}
           >
-            Home
-          </a>
-          <a
-            href="#about"
-            className="block text-black hover:bg-gray-200 hover:text-black py-2 px-4 rounded-lg transition-colors text-center"
-          >
-            About
-          </a>
-          <a
-            href="#map"
-            className="block text-black hover:bg-gray-200 hover:text-black py-2 px-4 rounded-lg transition-colors text-center"
-          >
-            Map
-          </a>
-          <a
-            href="#resources"
-            className="block text-black hover:bg-gray-200 hover:text-black py-2 px-4 rounded-lg transition-colors text-center"
-          >
-            Resources
-          </a>
+            {mobileOpen ? (
+              <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            ) : (
+              <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            )}
+          </button>
         </div>
-      )}
-    </header>
+
+        {/* Mobile dropdown */}
+        {mobileOpen && (
+          <div
+            className="md:hidden pb-4"
+            style={{ borderTop: "1px solid var(--rule)" }}
+          >
+            <div className="flex flex-col pt-3">
+              {navItems.map(({ path, label }) => {
+                const active = location.pathname === path;
+                return (
+                  <Link
+                    key={path}
+                    to={path}
+                    onClick={() => setMobileOpen(false)}
+                    className="py-3 no-underline"
+                    style={{
+                      fontFamily: "var(--font-sans)",
+                      fontSize: "15px",
+                      fontWeight: 500,
+                      color: active ? "var(--ink)" : "var(--ink-soft)",
+                    }}
+                  >
+                    {label}
+                  </Link>
+                );
+              })}
+            </div>
+          </div>
+        )}
+      </div>
+    </nav>
   );
 }
 

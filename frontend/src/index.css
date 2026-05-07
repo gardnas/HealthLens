@@ -1,1 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Public+Sans:wght@400;500;600&display=swap');
 @import "tailwindcss";
+
+:root {
+  --ink: #1B2A41;
+  --ink-soft: #3A4A60;
+  --ink-muted: #6B7080;
+  --rule: #D8D2C7;
+  --surface: #FAF7F2;
+  --surface-raise: #FFFFFF;
+  --surface-band: #F1ECE0;
+  --brand: #2C6E7F;
+  --brand-deep: #1F5965;
+  --accent: #B8593A;
+  --font-serif: 'Source Serif 4', 'Lora', Georgia, serif;
+  --font-sans: 'Public Sans', 'IBM Plex Sans', system-ui, sans-serif;
+}
