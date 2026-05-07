@@ -6,7 +6,8 @@ const navItems = [
   { path: "/about", label: "Primer" },
   { path: "/data-sources", label: "Methodology" },
   { path: "/resources", label: "Find Screening" },
-  { path: "/faq", label: "About" },
+  { path: "/faq", label: "FAQs" },
+  { path: "/About", label: "About" },
 ];
 
 function Navbar() {
