@@ -1,4 +1,4 @@
-# HealthLens Project Continuation
+# HealthLens Project Continuation of Health4All
 **INFO Winter 2026 / Spring 2026 Capstone Project:**
 *Team Chansey*
 
@@ -6,7 +6,7 @@
 **HealthLens** is a website that provides geographic breast cancer data and social determinants of health (SDOH) statistics in an accessible and understandable way for general audiences seeking to explore their correlation in order to be more informed about screening and other preventative interventions.
 
 ## Current Features
-In its current state, the website has four pages:
+In its previous state, the website had the following pages:
 * **Home Page:** Introduces the the project.
 * **Map Page:** Hosts the interactive GIS tool that visualizes breast cancer incidence across King County.
     * *Includes:* Interactive map with color-coded regions, tooltips, and detailed statistics by area.
