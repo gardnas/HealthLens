@@ -18,7 +18,7 @@ function Hero() {
 
         <div className="relative z-10 flex flex-col text-center max-w-3xl px-4">
           <h1 className="text-7xl font-bold tracking-tighter text-white leading-tight">
-            About Health4All
+            About HealthLens
           </h1>
         </div>
       </div>

@@ -39,7 +39,7 @@ function Navbar() {
                 letterSpacing: "-0.01em",
               }}
             >
-              Health4All
+              HealthLens
             </span>
           </Link>
 
@@ -81,7 +81,7 @@ function Navbar() {
               color: "var(--ink)",
             }}
           >
-            Health4All
+            HealthLens
           </Link>
           <button
             onClick={() => setMobileOpen(!mobileOpen)}

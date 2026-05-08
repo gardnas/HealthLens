@@ -5,9 +5,9 @@ import Navbar from "./Navbar";
 const faqs = [
   {
     id: "item-1",
-    question: "Who is Health4All for?",
+    question: "Who is HealthLens for?",
     answer:
-      "Health4All is a public health reading tool designed for community advocates, researchers, policymakers, and residents of King County who want to understand how social and economic conditions shape health outcomes in their neighborhoods.",
+      "HealthLens is a public health reading tool designed for community advocates, researchers, policymakers, and residents of King County who want to understand how social and economic conditions shape health outcomes in their neighborhoods.",
   },
   {
     id: "item-2",
@@ -19,7 +19,7 @@ const faqs = [
     id: "item-3",
     question: "Why did we build this project?",
     answer:
-      "Health data is often presented out of context, leading people to equate recorded diagnoses with absolute risk. We built Health4All to show that a higher diagnosis rate does not necessarily mean a neighborhood is more 'dangerous'. Instead, it often indicates better access to healthcare and screening.",
+      "Health data is often presented out of context, leading people to equate recorded diagnoses with absolute risk. We built HealthLens to show that a higher diagnosis rate does not necessarily mean a neighborhood is more 'dangerous'. Instead, it often indicates better access to healthcare and screening.",
   },
   {
     id: "item-4",
@@ -137,7 +137,7 @@ function FAQ() {
             color: "var(--ink)",
           }}
         >
-          Understanding Health4All
+          Understanding HealthLens
         </h1>
 
         <p

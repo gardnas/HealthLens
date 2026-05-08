@@ -1,9 +1,9 @@
-# Health4All Project Continutation
+# HealthLens Project Continuation
 **INFO Winter 2026 / Spring 2026 Capstone Project:**
 *Team Chansey*
 
 ## Project Description
-**Health4All** is a website that provides geographic breast cancer data and social determinants of health (SDOH) statistics in an accessible and understandable way for general audiences seeking to explore their correlation in order to be more informed about screening and other preventative interventions.
+**HealthLens** is a website that provides geographic breast cancer data and social determinants of health (SDOH) statistics in an accessible and understandable way for general audiences seeking to explore their correlation in order to be more informed about screening and other preventative interventions.
 
 ## Current Features
 In its current state, the website has four pages:
@@ -87,7 +87,7 @@ Raw data was downloaded from the CHI Tableau dashboards and transformed into JSO
 Distributed under the **MIT License**. See `LICENSE` file for more information.
 
 ## Original Project Acknowledgements:
-This project is a continuation of the work done by the original Health4All capstone team in Winter 2025. We acknowledge their foundational work in establishing the initial map, starting website, and dataset integration. See the original repository for more information.
+This project is a continuation of the work done by the original HealthLens capstone team in Winter 2025. We acknowledge their foundational work in establishing the initial map, starting website, and dataset integration. See the original repository for more information.
 * Original Repository: [poben2002/Health4All](https://github.com/poben2002/Health4All)
 * Current deployement: https://health4all-frontend.onrender.com/#/
 * Winter 2025 Group Presentation: 
