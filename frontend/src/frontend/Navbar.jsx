@@ -12,6 +12,7 @@ const navItems = [
 function Navbar() {
   const location = useLocation();
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [ctaHovered, setCtaHovered] = useState(false);
 
   return (
     <nav
@@ -70,12 +71,17 @@ function Navbar() {
             <Link
               to="/resources"
               className="no-underline flex items-center gap-1"
+              onMouseEnter={() => setCtaHovered(true)}
+              onMouseLeave={() => setCtaHovered(false)}
               style={{
                 fontFamily: "var(--font-sans)",
                 fontSize: "15px",
                 fontWeight: 600,
                 color: "#C05C1F",
                 marginLeft: "8px",
+                borderBottom: ctaHovered ? "2px solid #C05C1F" : "2px solid transparent",
+                paddingBottom: "2px",
+                transition: "border-color 200ms ease",
               }}
             >
               Find Screening
