@@ -1,4 +1,5 @@
 import React from "react";
+import homepageImg from "../assets/homepage.png";
 import DataMap from './DataMap';
 import DataSidebar from './DataSidebar';
 import Navbar from './Navbar';
@@ -8,30 +9,99 @@ import { Link } from "react-router-dom";
 
 function Hero() {
   return (
-    <section
-      className="relative flex flex-col justify-center items-center w-full min-h-screen bg-cover bg-center bg-no-repeat font-inter"
-      style={{
-        backgroundImage: "url('https://cdn.builder.io/api/v1/image/assets/8b5f020b1697482bb283efed7adbe58e/6dbd5e49b7ba35a3f444e71ab032b6917712e69008fc6c72291c658fcb0b995c?apiKey=8b5f020b1697482bb283efed7adbe58e&')",
-        backgroundSize: "cover",
-        margin: 0,
-        padding: 0,   
-      }}
-    >
-      <div className="flex flex-col text-center max-w-3xl px-4">
-        <h1 className="text-6xl font-bold tracking-tighter leading-tight max-md:text-4xl">
-          Social Determinants and Breast Cancer in Seattle
-        </h1>
-        <p className="mt-6 text-2xl font-light leading-10">
-          Explore how race, income, education, and other social factors
-          intersect with breast cancer data across Seattle's neighborhoods with our interactive map.
-        </p>
-        <div className="mt-10">
-          <Link to="/Map" className={`inline-block px-6 py-3 text-xl font-medium bg-gray-200 text-black rounded-xl shadow-md`}>
-            Start Exploring
-          </Link>
-          <Link to="/Resources" className={`inline-block m-2 px-6 py-3 text-xl font-medium bg-gray-200 text-black rounded-xl shadow-md`}>
-            More Information
-          </Link>
+    <section style={{ backgroundColor: "var(--surface)" }}>
+      <div className="max-w-[1200px] mx-auto px-10 pt-24 pb-24">
+        <div className="grid grid-cols-12 gap-10 items-center">
+
+          {/* Left — text */}
+          <div className="col-span-12 lg:col-span-6 text-left">
+            <div
+              style={{
+                width: "48px",
+                height: "3px",
+                backgroundColor: "var(--brand)",
+                marginBottom: "24px",
+              }}
+            />
+            <h1
+              className="mb-8"
+              style={{
+                fontFamily: "var(--font-serif)",
+                fontSize: "56px",
+                lineHeight: "64px",
+                fontWeight: 600,
+                letterSpacing: "-0.01em",
+                color: "var(--ink)",
+                maxWidth: "18ch",
+              }}
+            >
+              Reading a map of breast cancer rates in King County.
+            </h1>
+            <p
+              style={{
+                fontFamily: "var(--font-serif)",
+                fontSize: "22px",
+                lineHeight: "32px",
+                fontWeight: 400,
+                color: "var(--ink-soft)",
+                maxWidth: "60ch",
+              }}
+            >
+              A reading guide to breast cancer diagnosis rates across King
+              County. The maps and explanations on this site are designed for
+              people without a public-health background. They show what the
+              data measures, where it comes from, and — critically — what it
+              does <em>not</em> mean about personal risk.
+            </p>
+            <div className="mt-10 flex items-center gap-8">
+              <Link
+                to="/about"
+                style={{
+                  display: "inline-block",
+                  backgroundColor: "var(--brand)",
+                  color: "#FFFFFF",
+                  fontFamily: "var(--font-sans)",
+                  fontWeight: 500,
+                  fontSize: "15px",
+                  padding: "10px 20px",
+                  textDecoration: "none",
+                  borderRadius: "4px",
+                }}
+              >
+                Start here →
+              </Link>
+              <Link
+                to="/map"
+                style={{
+                  color: "var(--ink-muted)",
+                  fontFamily: "var(--font-sans)",
+                  fontWeight: 500,
+                  fontSize: "15px",
+                  borderBottom: "1px solid var(--ink-muted)",
+                  paddingBottom: "2px",
+                  textDecoration: "none",
+                }}
+              >
+                Skip to the map
+              </Link>
+            </div>
+          </div>
+
+          {/* Right — image */}
+          <div className="col-span-12 lg:col-span-6">
+            <img
+              src={homepageImg}
+              alt="A residential street in a Seattle neighborhood"
+              style={{
+                width: "100%",
+                aspectRatio: "4 / 5",
+                objectFit: "cover",
+                filter: "saturate(0.88)",
+                display: "block",
+              }}
+            />
+          </div>
+
         </div>
       </div>
     </section>
