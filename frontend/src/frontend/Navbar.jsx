@@ -5,7 +5,6 @@ const navItems = [
   { path: "/map", label: "Map" },
   { path: "/about", label: "Primer" },
   { path: "/data-sources", label: "Methodology" },
-  { path: "/resources", label: "Find Screening" },
   { path: "/About", label: "About" },
   { path: "/faq", label: "FAQs" },
 ];
@@ -66,6 +65,24 @@ function Navbar() {
                 </Link>
               );
             })}
+
+            {/* CTA — Find Screening */}
+            <Link
+              to="/resources"
+              className="no-underline flex items-center gap-1"
+              style={{
+                fontFamily: "var(--font-sans)",
+                fontSize: "15px",
+                fontWeight: 600,
+                color: "#C05C1F",
+                marginLeft: "8px",
+              }}
+            >
+              Find Screening
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} style={{ flexShrink: 0 }}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </Link>
           </div>
         </div>
 
@@ -126,6 +143,25 @@ function Navbar() {
                   </Link>
                 );
               })}
+              <Link
+                to="/resources"
+                onClick={() => setMobileOpen(false)}
+                className="py-3 no-underline flex items-center gap-1"
+                style={{
+                  fontFamily: "var(--font-sans)",
+                  fontSize: "15px",
+                  fontWeight: 600,
+                  color: "#C05C1F",
+                  marginTop: "4px",
+                  borderTop: "1px solid var(--rule)",
+                  paddingTop: "16px",
+                }}
+              >
+                Find Screening
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} style={{ flexShrink: 0 }}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </Link>
             </div>
           </div>
         )}
