@@ -45,13 +45,14 @@ router.get('/median-income', async (req, res) => {
     }
 });
 
-// Color function for circle markers based on comparison
-function getMarkerColor(comparison) {
-  return comparison === "higher"
-    ? "#ff0000"  // Red for higher
-    : comparison === "lower"
-      ? "#00ff00"  // Green for lower
-      : "#ffff00";  // Yellow for no difference
-}
+// Route for poverty data
+router.get('/poverty', async (req, res) => {
+    try {
+        const data = await readJsonFile('poverty_population.json');
+        res.json(data);
+    } catch (error) {
+        res.status(500).json({ error: 'Failed to fetch poverty data' });
+    }
+});
 
 module.exports = router; 
