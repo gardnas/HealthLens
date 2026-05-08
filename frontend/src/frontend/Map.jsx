@@ -230,7 +230,7 @@ function SidePanel({ selected, allData }) {
 
       <div style={{ marginTop: '8px' }}>
         <Accordion title="What these numbers suggest">
-          <p>Higher detection rates often reflect better screening access — not greater personal cancer risk. Areas with lower rates may have underdiagnosis due to limited healthcare access, language barriers, or lower screening uptake.</p>
+          <p>Higher detection rates often reflect better screening access not greater personal cancer risk. Areas with lower rates may have underdiagnosis due to limited healthcare access, language barriers, or lower screening uptake.</p>
           {comparison === 'higher' && (
             <p style={{ marginTop: '8px' }}>This area's rate is statistically above the county average, likely reflecting stronger preventive care infrastructure and higher screening participation.</p>
           )}
@@ -373,9 +373,9 @@ function MapPage() {
           marginBottom: '28px',
           borderRadius: '0 2px 2px 0',
         }}>
-          <p style={{ fontFamily: 'var(--font-sans)', fontSize: '14px', color: 'var(--ink-soft)', lineHeight: 1.6, textAlign: 'left', margin: 0 }}>
+          <p style={{ fontFamily: 'var(--font-sans)', fontSize: '16px', color: 'var(--ink-soft)', lineHeight: 1.6, textAlign: 'left', margin: 0 }}>
             <strong style={{ color: 'var(--ink)' }}>Rates ≠ Risk.</strong>{' '}
-            A higher detection rate often means better access to screening, not more danger. These numbers show where cancers are being found — not who is most at risk.
+            A higher detection rate often means better access to screening, not more danger. These numbers show where cancers are being found, <strong style={{color: 'var(--ink'}}>not who is most at risk.</strong>
           </p>
         </div>
 
