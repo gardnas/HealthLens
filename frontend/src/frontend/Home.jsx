@@ -50,7 +50,7 @@ function Hero() {
               A reading guide to breast cancer diagnosis rates across King
               County. The maps and explanations on this site are designed for
               people without a public-health background. They show what the
-              data measures, where it comes from, and — critically — what it
+              data measures, where it comes from, and what it
               does <em>not</em> mean about personal risk.
             </p>
             <div className="mt-10 flex items-center gap-8">
@@ -68,7 +68,7 @@ function Hero() {
                   borderRadius: "4px",
                 }}
               >
-                Start here →
+                Start here
               </Link>
               <Link
                 to="/map"
@@ -82,7 +82,7 @@ function Hero() {
                   textDecoration: "none",
                 }}
               >
-                Skip to the map
+                Skip, continue to the map →
               </Link>
             </div>
           </div>
@@ -100,6 +100,19 @@ function Hero() {
                 display: "block",
               }}
             />
+            <p
+              style={{
+                fontFamily: "var(--font-mono, ui-monospace, monospace)",
+                fontSize: "11px",
+                letterSpacing: "0.04em",
+                color: "var(--ink-muted)",
+                marginTop: "12px",
+                textTransform: "uppercase",
+              }}
+            >
+              {/* 
+               */}
+            </p>
           </div>
 
         </div>
