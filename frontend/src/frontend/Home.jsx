@@ -222,6 +222,148 @@ function ExploreData() {
   );
 }
 
+function KingCountyGlance() {
+  const stats = [
+    {
+      value: "41%",
+      line: "of women age 40+ in King County had a mammogram in the past two years.",
+      source: "BRFSS, 2023",
+      href: "https://www.cdc.gov/brfss/index.html",
+    },
+    {
+      value: "128.1",
+      line: "breast cancer diagnoses per 100,000 women — King County, age-adjusted.",
+      source: "WSCR, 2020–2023",
+      href: "https://fortress.wa.gov/doh/wscr/",
+    },
+    {
+      value: "129.7",
+      line: "diagnoses per 100,000 women — United States average for comparison.",
+      source: "CDC USCS, 2021",
+      href: "https://www.cdc.gov/cancer/uscs/",
+    },
+    {
+      value: "6.2%",
+      line: "of King County adults under 65 lacked health insurance in 2022.",
+      source: "ACS 5-year, 2022",
+      href: "https://data.census.gov/",
+    },
+  ];
+
+  return (
+    <section
+      style={{
+        backgroundColor: "var(--surface-warm)",
+        borderTop: "1px solid var(--rule)",
+        borderBottom: "1px solid var(--rule)",
+      }}
+    >
+      <div className="max-w-[1200px] mx-auto px-10 py-24">
+        {/* Section header — matches Figma SectionHeader component */}
+        <div style={{ marginBottom: "56px", textAlign: "left" }}>
+          <div
+            style={{
+              width: "48px",
+              height: "3px",
+              backgroundColor: "var(--brand)",
+              marginBottom: "24px",
+            }}
+          />
+          <h2
+            style={{
+              fontFamily: "var(--font-serif)",
+              fontSize: "36px",
+              lineHeight: "44px",
+              fontWeight: 600,
+              color: "var(--ink)",
+              letterSpacing: "-0.01em",
+              margin: 0,
+            }}
+          >
+            King County at a glance.
+          </h2>
+          <p
+            style={{
+              marginTop: "16px",
+              color: "var(--ink-soft)",
+              fontSize: "16px",
+              fontWeight: 400,
+              maxWidth: "60ch",
+            }}
+          >
+            Six baseline numbers that frame every neighborhood comparison on this site.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+          {stats.map((s) => (
+            <div
+              key={s.value}
+              style={{
+                borderTop: "1px solid var(--rule)",
+                paddingTop: "20px",
+                textAlign: "left",
+              }}
+            >
+              <div
+                style={{
+                  fontFamily: "var(--font-serif)",
+                  fontSize: "64px",
+                  lineHeight: 1,
+                  fontWeight: 600,
+                  color: "var(--brand)",
+                  letterSpacing: "-0.02em",
+                }}
+              >
+                {s.value}
+              </div>
+              <p
+                style={{
+                  marginTop: "16px",
+                  color: "var(--ink-soft)",
+                  fontSize: "16px",
+                  lineHeight: "26px",
+                  textAlign: "left",
+                }}
+              >
+                {s.line}
+              </p>
+              <a
+                href={s.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  display: "inline-block",
+                  marginTop: "12px",
+                  fontFamily: "var(--font-mono, ui-monospace, monospace)",
+                  fontSize: "11px",
+                  letterSpacing: "0.04em",
+                  color: "var(--ink-muted)",
+                  textTransform: "uppercase",
+                  textDecoration: "none",
+                  borderBottom: "1px solid var(--rule)",
+                  paddingBottom: "1px",
+                  transition: "color 150ms ease, border-color 150ms ease",
+                }}
+                onMouseEnter={e => {
+                  e.currentTarget.style.color = "var(--brand)";
+                  e.currentTarget.style.borderBottomColor = "var(--brand)";
+                }}
+                onMouseLeave={e => {
+                  e.currentTarget.style.color = "var(--ink-muted)";
+                  e.currentTarget.style.borderBottomColor = "var(--rule)";
+                }}
+              >
+                Source · {s.source}
+              </a>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function Footer() {
   return (
     <footer className="flex overflow-hidden flex-wrap gap-4 items-start px-8 pt-8 pb-1 w-full text-base leading-snug text-black bg-white border-t border-zinc-300 min-h-[142px] max-md:px-5 max-md:max-w-full font-inter">
@@ -245,6 +387,7 @@ function Home() {
     <div className="font-inter min-h-screen">
       <Navbar />
       <Hero />
+      <KingCountyGlance />
       <DataExplanation />
       <MapPreview />
       {/* <ExploreData /> */}
