@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import Navbar from './Navbar';
 import { Link } from 'react-router-dom';
 
@@ -27,6 +28,59 @@ const sdohIndicators = [
     body: "Race and ethnicity are social — not biological — predictors of screening access. Historical disinvestment and unequal clinic distribution have concentrated access barriers in many communities of color.",
   },
 ];
+
+function SdohTooltip() {
+  const [visible, setVisible] = useState(false);
+  return (
+    <span
+      style={{ position: "relative", display: "inline" }}
+      onMouseEnter={() => setVisible(true)}
+      onMouseLeave={() => setVisible(false)}
+    >
+      <span style={{ borderBottom: "1px solid var(--ink-muted)", paddingBottom: "1px", cursor: "default" }}>
+        social determinants of health
+      </span>
+      {visible && (
+        <span
+          style={{
+            position: "absolute",
+            bottom: "calc(100% + 10px)",
+            left: "50%",
+            transform: "translateX(-50%)",
+            width: "320px",
+            backgroundColor: "var(--surface-raise)",
+            border: "1px solid var(--rule)",
+            padding: "16px",
+            zIndex: 50,
+            boxShadow: "0 4px 16px rgba(0,0,0,0.08)",
+            pointerEvents: "auto",
+          }}
+        >
+          <p style={{ fontFamily: "var(--font-sans)", fontSize: "13px", lineHeight: "20px", color: "var(--ink-soft)", margin: 0 }}>
+            "The conditions in which people are born, grow, work, live, and age, and the wider set of forces and systems shaping the conditions of daily life."
+          </p>
+          <a
+            href="https://www.who.int/health-topics/social-determinants-of-health"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              display: "inline-block",
+              marginTop: "10px",
+              fontFamily: "var(--font-sans)",
+              fontSize: "12px",
+              color: "var(--brand)",
+              textDecoration: "none",
+              borderBottom: "1px solid var(--brand)",
+              paddingBottom: "1px",
+            }}
+          >
+            World Health Organization →
+          </a>
+        </span>
+      )}
+    </span>
+  );
+}
 
 function SectionHeader({ title, kicker }) {
   return (
@@ -86,7 +140,7 @@ function Primer() {
             Health is determined by far more than biology or personal behavior.
             The conditions where people are born, live, work, and age —
             collectively called{" "}
-            <span style={{ borderBottom: "1px solid var(--ink-muted)", paddingBottom: "1px" }}>social determinants of health</span>
+            <SdohTooltip />
             {" "}— predict who gets screened for breast cancer just as reliably as
             family history or age.
           </p>
