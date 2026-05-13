@@ -64,12 +64,9 @@ function Primer() {
           </p>
           <div style={{ marginTop: "40px", borderTop: "1px solid var(--rule)", paddingTop: "20px" }}>
             <div className="flex justify-center gap-12">
-              {["01  Social determinants of health", "02  Rates vs. risk", "03  The map"].map((s) => (
-                <span
-                  key={s}
-                  style={{ fontFamily: "var(--font-mono, ui-monospace, monospace)", fontSize: "11px", letterSpacing: "0.06em", color: "var(--ink-muted)", textTransform: "uppercase" }}
-                >
-                  {s}
+              {[["01", "Social determinants of health"], ["02", "Rates vs. risk"], ["03", "The map"]].map(([num, label]) => (
+                <span key={num} style={{ fontFamily: "var(--font-sans)", fontSize: "13px", color: "var(--ink-muted)" }}>
+                  <span style={{ color: "var(--brand)", fontWeight: 600 }}>{num}</span>{"  "}{label}
                 </span>
               ))}
             </div>
