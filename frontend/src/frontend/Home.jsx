@@ -228,25 +228,25 @@ function KingCountyGlance() {
       value: "41%",
       line: "of women age 40+ in King County had a mammogram in the past two years.",
       source: "BRFSS, 2023",
-      href: "https://www.cdc.gov/brfss/index.html",
+      href: "https://doh.wa.gov/data-and-statistical-reports/data-systems/behavioral-risk-factor-surveillance-system-brfss/resources-brfss-results",
     },
     {
       value: "128.1",
       line: "breast cancer diagnoses per 100,000 women — King County, age-adjusted.",
       source: "WSCR, 2020–2023",
-      href: "https://fortress.wa.gov/doh/wscr/",
+      href: "https://fortress.wa.gov/doh/wtn/WTNPortal/home/indexraw?q0=511",
     },
     {
       value: "129.7",
       line: "diagnoses per 100,000 women — United States average for comparison.",
       source: "CDC USCS, 2021",
-      href: "https://www.cdc.gov/cancer/uscs/",
+      href: "https://www.cdc.gov/breast-cancer/statistics/index.html",
     },
     {
       value: "6.2%",
       line: "of King County adults under 65 lacked health insurance in 2022.",
       source: "ACS 5-year, 2022",
-      href: "https://data.census.gov/",
+      href: "https://www.census.gov/data/tables/time-series/demo/health-insurance/acs-hi.html",
     },
   ];
 
