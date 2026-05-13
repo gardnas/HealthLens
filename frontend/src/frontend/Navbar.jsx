@@ -3,9 +3,9 @@ import { Link, useLocation } from "react-router-dom";
 
 const navItems = [
   { path: "/map", label: "Map" },
-  { path: "/about", label: "Primer" },
+  { path: "/primer", label: "Primer" },
   { path: "/data-sources", label: "Methodology" },
-  { path: "/About", label: "About" },
+  { path: "/about", label: "About" },
   { path: "/faq", label: "FAQs" },
 ];
 

@@ -265,7 +265,7 @@ function Primer() {
                 Open the full map →
               </Link>
               <Link
-                to="/About"
+                to="/about"
                 style={{ color: "var(--ink-muted)", fontWeight: 500, fontSize: "14px", borderBottom: "1px solid var(--rule)", paddingBottom: "2px", textDecoration: "none" }}
               >
                 About this project

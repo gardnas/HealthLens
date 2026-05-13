@@ -55,7 +55,7 @@ function Hero() {
             </p>
             <div className="mt-10 flex items-center gap-8">
               <Link
-                to="/about"
+                to="/primer"
                 style={{
                   display: "inline-block",
                   backgroundColor: "var(--brand)",
