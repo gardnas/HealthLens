@@ -110,37 +110,6 @@ function Primer() {
             the variation in mammography rates across the county.
           </p>
 
-          {/* Chain of causation */}
-          <div style={{ marginTop: "40px", padding: "24px", backgroundColor: "var(--surface-raise)", border: "1px solid var(--rule)" }}>
-            <div style={{ color: "var(--ink-muted)", fontSize: "11px", fontFamily: "var(--font-sans)", fontWeight: 600, letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: "16px" }}>
-              How the chain works
-            </div>
-            <div className="flex flex-wrap items-center gap-2">
-              {[
-                "Social conditions", "→", "Screening access", "→",
-                "Mammogram received (or not)", "→", "Cancer detected (or not)", "→", "Recorded diagnosis rate",
-              ].map((step, i) => (
-                <span
-                  key={i}
-                  style={{
-                    color: step === "→" ? "var(--ink-muted)" : "var(--ink)",
-                    fontSize: step === "→" ? "16px" : "14px",
-                    fontWeight: step === "→" ? 400 : 500,
-                    fontFamily: "var(--font-sans)",
-                    backgroundColor: step === "→" ? "transparent" : "var(--surface-band)",
-                    padding: step === "→" ? "0" : "4px 10px",
-                  }}
-                >
-                  {step}
-                </span>
-              ))}
-            </div>
-            <p style={{ marginTop: "16px", color: "var(--ink-muted)", fontSize: "13px", lineHeight: "20px" }}>
-              The diagnosis rate at the end of this chain reflects{" "}
-              <strong style={{ color: "var(--ink-soft)" }}>detection capacity, not underlying disease prevalence.</strong>{" "}
-              A neighborhood with stronger social conditions tends to detect more cancers — and so shows a higher rate.
-            </p>
-          </div>
         </div>
       </section>
 
