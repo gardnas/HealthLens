@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Navbar from './Navbar';
 import { motion, useInView, useAnimation } from "framer-motion";
 import { useEffect, useRef } from "react";
@@ -67,39 +67,34 @@ function Mission() {
         <div className="w-full max-w-[1200px] mx-auto">
           <div className="mb-16">
             <h2 className="text-4xl font-semibold tracking-tighter leading-tight text-black text-left mb-8">Our Mission</h2>
-            <p className="text-xl text-left mb-6">
-              This project was created to examine the relationship between social determinants of health—such as income, race, education, and healthcare
-              access—and breast cancer outcomes in Seattle's communities. By analyzing and visualizing this data, we aim to uncover patterns that may reveal
-              disparities in health, with a specific focus on cancer rates across different neighborhoods and zip codes. At its core, this project strives to:
+            <p className="text-xl text-left mb-8" style={{ fontStyle: "italic", borderLeft: "3px solid var(--brand)", paddingLeft: "20px", color: "var(--ink-soft)" }}>
+              How might individuals with limited health data literacy in Seattle better understand how social determinants of health relate to breast cancer risk — so that they can make more informed decisions about prevention and screening?
             </p>
-
+            <p className="text-xl text-left mb-6">
+              HealthLens was built to answer that question. Health data is routinely published without the context needed to interpret it responsibly. Recorded diagnosis rates are often mistaken for measures of underlying disease prevalence — when in fact they primarily reflect how well a community is screened. We built this tool to bridge that gap.
+            </p>
             <div className="pl-5 mb-4 text-left text-xl">
-              <strong>Identify Health Disparities:</strong>
-              <p>Explore patterns in behavior risk factors, education, and access to healthcare.</p>
+              <strong>Bridge the literacy gap:</strong>
+              <p>Make breast cancer data readable for people without a public-health background, with clear explanations of what the numbers do and don't mean.</p>
             </div>
             <div className="pl-5 mb-4 text-left text-xl">
-              <strong>Promote Equity:</strong>
-              <p>Help policymakers, community organizations, and healthcare providers address health inequities.</p>
+              <strong>Surface structural barriers:</strong>
+              <p>Show how income, insurance, poverty, and demographics shape who gets screened — and whose cancers go undetected.</p>
             </div>
             <div className="pl-5 mb-4 text-left text-xl">
-              <strong>Empower Communities:</strong>
-              <p>Enable individuals to make informed decisions for improved health outcomes.</p>
+              <strong>Support informed action:</strong>
+              <p>Give residents, advocates, and policymakers a shared starting point for conversations about prevention, screening access, and health equity in King County.</p>
             </div>
           </div>
           <div>
             <h2 className="text-4xl font-semibold tracking-tighter leading-tight text-black text-left mb-8">Why It Matters</h2>
             <p className="text-xl text-left mb-6">
-              Social determinants of health are key factors that shape how individuals and communities experience health outcomes.
-              These factors—such as where you live, your income level, your access to quality education,
-              and your healthcare options—often dictate the kind of health challenges a community will face.
-              In Seattle, as in many other cities, these factors can influence the likelihood of developing serious diseases, including cancer.
-              By connecting this social data to cancer rates across neighborhoods, this project seeks to:
+              Where you live, your income, your insurance status, and your access to care shape your likelihood of getting a mammogram — and whether a cancer gets caught early or late. In King County, these disparities are visible across neighborhoods. A low recorded diagnosis rate in an under-resourced area is not a sign of good health; it is often a sign that fewer screenings are happening and fewer cancers are being found.
             </p>
-
             <ul className="list-disc text-left ml-8 text-lg mt-4">
-              <li>Identify patterns that may reveal higher or lower cancer risks based on social conditions.</li>
-              <li>Inform public health strategies aimed at addressing these disparities.</li>
-              <li>Encourage local residents to engage in discussions about improving health equity.</li>
+              <li>Early detection dramatically improves breast cancer outcomes — but only for those who can access screening.</li>
+              <li>Structural barriers, not personal choices, drive most of the variation in screening rates across neighborhoods.</li>
+              <li>Understanding the data clearly is the first step toward changing the conditions that create disparities.</li>
             </ul>
           </div>
         </div>
@@ -249,6 +244,162 @@ function TeamIntro() {
   );
 }
 
+const faqs = [
+  {
+    id: "item-1",
+    question: "Who is HealthLens for?",
+    answer:
+      "HealthLens is a public health reading tool designed for community advocates, researchers, policymakers, and residents of King County who want to understand how social and economic conditions shape health outcomes in their neighborhoods.",
+  },
+  {
+    id: "item-2",
+    question: "How do I use this website?",
+    answer:
+      "Start by exploring the interactive map on the 'Map' page. Click on a specific neighborhood to open a detailed breakdown. You'll see the recorded breast cancer detection rate compared to the county average, alongside local data on income, insurance, and demographics. Use these details to contextualize the health data.",
+  },
+  {
+    id: "item-3",
+    question: "Why did we build this project?",
+    answer:
+      "Health data is often presented out of context, leading people to equate recorded diagnoses with absolute risk. We built HealthLens to show that a higher diagnosis rate does not necessarily mean a neighborhood is more 'dangerous'. Instead, it often indicates better access to healthcare and screening.",
+  },
+  {
+    id: "item-4",
+    question: "What steps should I take after reading this data?",
+    answer:
+      "If you're a resident, use this information to understand your community's health landscape, but rely on your doctor for personal risk assessments. If you need screening, check our Resources page to find nearby clinics. Advocates and policymakers can use this data to push for targeted outreach and mobile mammography in under-screened areas.",
+  },
+  {
+    id: "item-5",
+    question: "Why do some wealthy neighborhoods have higher detection rates?",
+    answer:
+      "Neighborhoods with higher median incomes typically have better insurance coverage and more accessible healthcare facilities. This means residents are more likely to receive regular preventative screenings, leading to more cancers being detected early and recorded. This is why we emphasize that 'Rates ≠ Risk'.",
+  },
+];
+
+function AccordionItem({ faq, isOpen, onToggle }) {
+  return (
+    <div
+      className="mb-4"
+      style={{
+        backgroundColor: "var(--surface-raise)",
+        border: "1px solid var(--rule)",
+        borderRadius: "4px",
+      }}
+    >
+      <button
+        className="flex w-full items-center justify-between px-6 py-5 text-left transition-colors"
+        onClick={onToggle}
+        aria-expanded={isOpen}
+      >
+        <span style={{ color: "var(--ink)", fontSize: "16px", fontWeight: 500, fontFamily: "var(--font-sans)" }}>
+          {faq.question}
+        </span>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="w-5 h-5 shrink-0 ml-4 transition-transform duration-200"
+          style={{ color: "var(--ink-muted)", transform: isOpen ? "rotate(180deg)" : "rotate(0deg)" }}
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          strokeWidth={2}
+        >
+          <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+        </svg>
+      </button>
+      <div
+        style={{
+          display: "grid",
+          gridTemplateRows: isOpen ? "1fr" : "0fr",
+          transition: "grid-template-rows 200ms ease",
+          overflow: "hidden",
+        }}
+      >
+        <div style={{ overflow: "hidden" }}>
+          <div className="px-6 pb-6 pt-2" style={{ color: "var(--ink-soft)", fontSize: "15px", lineHeight: 1.6, fontFamily: "var(--font-sans)" }}>
+            {faq.answer}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function FAQSection() {
+  const [openItem, setOpenItem] = useState(null);
+  const toggle = (id) => setOpenItem(openItem === id ? null : id);
+  const ref = useRef(null);
+  const isInView = useInView(ref, { amount: 0.3 });
+  const controls = useAnimation();
+
+  useEffect(() => {
+    if (isInView) {
+      controls.start({ opacity: 1, y: 0, transition: { duration: 0.8 } });
+    } else {
+      controls.start({ opacity: 0, y: 50, transition: { duration: 0.8 } });
+    }
+  }, [isInView, controls]);
+
+  return (
+    <motion.div ref={ref} initial={{ opacity: 0, y: 50 }} animate={controls} className="w-full">
+      <section className="w-full font-inter" style={{ backgroundColor: "var(--surface)", borderTop: "1px solid var(--rule)" }}>
+        <div className="max-w-[800px] mx-auto px-10 pt-24 pb-32">
+          <p
+            className="mb-6"
+            style={{
+              fontFamily: "var(--font-sans)",
+              fontSize: "13px",
+              fontWeight: 600,
+              letterSpacing: "0.08em",
+              textTransform: "uppercase",
+              color: "var(--ink-muted)",
+            }}
+          >
+            Frequently Asked Questions
+          </p>
+          <h2
+            className="mb-10"
+            style={{
+              fontFamily: "var(--font-serif)",
+              fontSize: "48px",
+              lineHeight: "58px",
+              fontWeight: 600,
+              letterSpacing: "-0.01em",
+              color: "var(--ink)",
+            }}
+          >
+            Understanding HealthLens
+          </h2>
+          <p
+            className="mb-16"
+            style={{
+              fontFamily: "var(--font-serif)",
+              fontSize: "22px",
+              lineHeight: "32px",
+              fontWeight: 400,
+              color: "var(--ink-soft)",
+            }}
+          >
+            Learn how to interpret the map, why we visualize social determinants
+            of health alongside detection rates, and what actionable steps you can
+            take next.
+          </p>
+          <div className="w-full">
+            {faqs.map((faq) => (
+              <AccordionItem
+                key={faq.id}
+                faq={faq}
+                isOpen={openItem === faq.id}
+                onToggle={() => toggle(faq.id)}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+    </motion.div>
+  );
+}
+
 function Footer() {
   return (
     <footer className="flex overflow-hidden flex-wrap gap-4 items-start px-8 pt-8 pb-1 w-full text-base leading-snug text-black bg-white border-t border-zinc-300 min-h-[142px] max-md:px-5 max-md:max-w-full font-inter">
@@ -271,6 +422,7 @@ function About() {
     <div className="font-inter w-full min-h-screen">
       <Navbar />
       <Hero />
+      <FAQSection />
       <Mission />
       <AboutData />
       <TeamIntro />
