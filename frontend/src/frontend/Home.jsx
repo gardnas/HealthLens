@@ -157,28 +157,28 @@ function ExploreData() {
 function KingCountyGlance() {
   const stats = [
     {
-      value: "41%",
+      value: "68.9%",
       line: "of women age 40+ in King County had a mammogram in the past two years.",
-      source: "BRFSS, 2023",
-      href: "https://doh.wa.gov/data-and-statistical-reports/data-systems/behavioral-risk-factor-surveillance-system-brfss/resources-brfss-results",
+      source: "NCI State Cancer Profiles (BRFSS + NHIS), 2021–2023",
+      href: "https://statecancerprofiles.cancer.gov/risk/index.php?stateFIPS=53&areatype=county&topic=women&risk=v06&race=00&sex=2&datatype=1&type=risk",
     },
     {
-      value: "128.1",
+      value: "148.2",
       line: "breast cancer diagnoses per 100,000 women — King County, age-adjusted.",
-      source: "WSCR, 2020–2023",
-      href: "https://fortress.wa.gov/doh/wtn/WTNPortal/home/indexraw?q0=511",
+      source: "NCI State Cancer Profiles / SEER+NPCR, 2018–2022",
+      href: "https://statecancerprofiles.cancer.gov/incidencerates/index.php?stateFIPS=53&areatype=county&cancer=055&stage=999&race=00&sex=2&age=001&type=incd&sortVariableName=count&sortOrder=desc",
     },
     {
-      value: "129.7",
+      value: "131.3",
       line: "diagnoses per 100,000 women — United States average for comparison.",
-      source: "CDC USCS, 2021",
-      href: "https://www.cdc.gov/breast-cancer/statistics/index.html",
+      source: "NCI State Cancer Profiles / SEER+NPCR, 2018–2022",
+      href: "https://statecancerprofiles.cancer.gov/incidencerates/index.php?stateFIPS=53&areatype=county&cancer=055&stage=999&race=00&sex=2&age=001&type=incd&sortVariableName=count&sortOrder=desc",
     },
     {
       value: "6.2%",
       line: "of King County adults under 65 lacked health insurance in 2022.",
-      source: "ACS 5-year, 2022",
-      href: "https://www.census.gov/data/tables/time-series/demo/health-insurance/acs-hi.html",
+      source: "U.S. Census Bureau, ACS 1-Year Estimates, 2022",
+      href: "https://data.census.gov/table?q=S2701&g=050XX00US53033&y=2022",
     },
   ];
 
@@ -267,11 +267,10 @@ function KingCountyGlance() {
                 style={{
                   display: "inline-block",
                   marginTop: "12px",
-                  fontFamily: "var(--font-mono, ui-monospace, monospace)",
-                  fontSize: "11px",
-                  letterSpacing: "0.04em",
+                  fontFamily: "var(--font-sans)",
+                  fontSize: "13px",
+                  letterSpacing: "0",
                   color: "var(--ink-muted)",
-                  textTransform: "uppercase",
                   textDecoration: "none",
                   borderBottom: "1px solid var(--rule)",
                   paddingBottom: "1px",
