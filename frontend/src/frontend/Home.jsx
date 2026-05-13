@@ -121,74 +121,6 @@ function Hero() {
   );
 }
 
-function DataExplanation() {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { amount: 0.5 });
-  const controls = useAnimation();
-
-  useEffect(() => {
-    if (isInView) {
-      console.log("coming into view")
-      controls.start({opacity : 1, y : 0, transition: { duration : 0.8 }});
-    } else {
-      console.log("leaving view")
-      controls.start({opacity: 0, y: 50, transition: { duration: 0.8 }});
-    }
-  }, [isInView, controls])
-  return (
-    <motion.div
-    ref={ref}
-    initial={{ opacity: 0, y: 50 }}
-    animate={controls}
-    className="w-full min-h-screen"
-    >
-      <section className="flex flex-col justify-center p-16 w-full w-full min-h-[90vh] text-gray-700 bg-white max-md:px-5 font-inter">
-        <div className="flex flex-wrap gap-16 items-center w-full">
-          <div className="flex flex-wrap flex-1 shrink gap-6 items-start self-stretch my-auto w-full basis-0 min-w-[240px]">
-            <div className="flex flex-col flex-1 shrink w-full basis-0 min-w-[160px]">
-              <div className="flex flex-col w-full">
-                <h2 className="text-4xl font-semibold tracking-tighter leading-tight text-black text-left mb-8">
-                  Why This Data Matters
-                </h2>
-                <p className="mt-2 text-xl text-left mb-2">
-                  Social factors—like income, race, and access to education—have
-                  a profound impact on health outcomes. This project uses data
-                  from Seattle's communities to explore how these factors might
-                  influence cancer rates and outcomes. By visualizing this data,
-                  we aim to spark conversations and inform decisions that can
-                  lead to healthier, more equitable communities.
-                  <br /><br />
-                  As you scroll down, you'll find an interactive map that allows
-                  you to dive deep into the data for each Seattle neighborhood.
-                  You can examine how cancer rates compare with factors like
-                  income, education, and race in real-time.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </motion.div>
-  );
-}
-
-function MapPreview() {
-  return (
-    <section className="bg-white py-16 text-center px-4">
-      <h2 className="text-4xl font-semibold mb-4">See the Map in Action</h2>
-      <p className="mb-6 text-xl text-gray-700">
-        Here’s a glimpse of our interactive map exploring health equity in King County.
-      </p>
-      <Link to="/map">
-        <img 
-          src="/images/map-preview.png" 
-          alt="Map preview" 
-          className="mx-auto rounded-2xl shadow-xl max-w-4xl w-full hover:opacity-90 transition duration-300"
-        />
-      </Link>
-    </section>
-  );
-}
 
 function ExploreData() {
   const ref = useRef(null); 
@@ -364,6 +296,51 @@ function KingCountyGlance() {
   );
 }
 
+function PrimerCTA() {
+  return (
+    <section style={{ backgroundColor: "var(--surface)", borderTop: "1px solid var(--rule)" }}>
+      <div className="max-w-[1200px] mx-auto px-10" style={{ paddingTop: "88px", paddingBottom: "96px" }}>
+        <div style={{ width: "48px", height: "3px", backgroundColor: "var(--brand)", marginBottom: "24px" }} />
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-10">
+          <div>
+            <h2 style={{ fontFamily: "var(--font-serif)", fontSize: "36px", lineHeight: "44px", fontWeight: 600, color: "var(--ink)", letterSpacing: "-0.01em", maxWidth: "28ch", margin: 0 }}>
+              Before you explore the map, read the primer.
+            </h2>
+            <p style={{ marginTop: "16px", color: "var(--ink-soft)", fontSize: "16px", lineHeight: "26px", maxWidth: "52ch" }}>
+              The primer explains what the diagnosis rates mean, what the social indicators show, and — critically — what the map does not tell you about personal risk.
+            </p>
+          </div>
+          <div className="flex items-center gap-6 shrink-0">
+            <Link
+              to="/primer"
+              style={{
+                display: "inline-block",
+                backgroundColor: "var(--brand)",
+                color: "#FFFFFF",
+                fontFamily: "var(--font-sans)",
+                fontWeight: 500,
+                fontSize: "15px",
+                padding: "12px 28px",
+                textDecoration: "none",
+                letterSpacing: "0.02em",
+                whiteSpace: "nowrap",
+              }}
+            >
+              Read the primer →
+            </Link>
+            <Link
+              to="/map"
+              style={{ color: "var(--ink-muted)", fontFamily: "var(--font-sans)", fontWeight: 500, fontSize: "14px", borderBottom: "1px solid var(--rule)", paddingBottom: "2px", textDecoration: "none", whiteSpace: "nowrap" }}
+            >
+              Go straight to the map
+            </Link>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function Footer() {
   return (
     <footer className="flex overflow-hidden flex-wrap gap-4 items-start px-8 pt-8 pb-1 w-full text-base leading-snug text-black bg-white border-t border-zinc-300 min-h-[142px] max-md:px-5 max-md:max-w-full font-inter">
@@ -384,13 +361,12 @@ function Footer() {
 
 function Home() {
   return (
-    <div className="font-inter min-h-screen">
+    <div className="w-full font-inter min-h-screen">
       <Navbar />
       <Hero />
       <KingCountyGlance />
-      <DataExplanation />
-      <MapPreview />
       {/* <ExploreData /> */}
+      <PrimerCTA />
       <Footer />
     </div>
   );
