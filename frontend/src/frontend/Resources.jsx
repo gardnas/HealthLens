@@ -78,6 +78,7 @@ function ResourcesSection() {
       animate={controls}
     >
       <section className="p-16 w-full font-inter">
+        <div className="max-w-[1200px] mx-auto">
         <h2 className="text-4xl font-semibold tracking-tighter text-left text-black mb-8">Community Resources</h2>
         <p className="text-xl text-left mb-8">
           Get involved, advocate for healthcare equity, and find support networks to help navigate health challenges.
@@ -101,6 +102,7 @@ function ResourcesSection() {
               <ResourceCard key={index} {...card} />
             ))}
           </motion.div>
+        </div>
         </div>
       </section>
     </motion.div>
@@ -178,10 +180,12 @@ function HealthcareSection() {
       className="max-w-full"
     >
       <section className="px-4 py-12 md:p-16 w-full font-inter">
+        <div className="max-w-[1200px] mx-auto">
         <InfoSection
           title={healthcareSections.title}
           sections={healthcareSections.sections}
         />
+        </div>
       </section>
     </motion.div>
   );
@@ -226,10 +230,12 @@ function StudiesSection() {
       className="max-w-full"
     >
       <section className="p-16 font-inter w-full">
+        <div className="max-w-[1200px] mx-auto">
         <InfoSection
           title={studiesSections.title}
           sections={studiesSections.sections}
         />
+        </div>
       </section>
     </motion.div>
   );

@@ -6,21 +6,36 @@ import { useEffect, useRef } from "react";
 
 function Hero() {
   return (
-    <section>
+    <section style={{ backgroundColor: "var(--surface)" }}>
       <div
-        className="relative flex flex-col justify-center items-center w-full min-h-screen bg-cover bg-center bg-no-repeat font-inter"
-        style={{
-          backgroundImage:
-            'url("https://57hours.com/wp-content/uploads/2022/07/hikes-mount-rainier-national-park-768x432.jpg")',
-        }}
+        className="max-w-[1200px] mx-auto px-10"
+        style={{ paddingTop: "80px", paddingBottom: "64px", textAlign: "left" }}
       >
-        <div className="absolute inset-0 bg-white opacity-20" />
-
-        <div className="relative z-10 flex flex-col text-center max-w-3xl px-4">
-          <h1 className="text-7xl font-bold tracking-tighter text-white leading-tight">
-            About HealthLens
-          </h1>
+        <div className="eyebrow" style={{ marginBottom: "24px" }}>
+          About this project
         </div>
+        <h1
+          style={{
+            fontFamily: "var(--font-serif)",
+            fontSize: "56px",
+            lineHeight: "64px",
+            fontWeight: 600,
+            letterSpacing: "-0.01em",
+            color: "var(--ink)",
+            maxWidth: "22ch",
+            textAlign: "left",
+          }}
+        >
+          HealthLens: a health equity platform.
+        </h1>
+        <p
+          className="lede"
+          style={{ marginTop: "24px", maxWidth: "58ch", textAlign: "left" }}
+        >
+          Built by a University of Washington capstone team to make breast
+          cancer data across King County readable for everyone — not just
+          public-health professionals.
+        </p>
       </div>
     </section>
   );
@@ -49,7 +64,7 @@ function Mission() {
       className="w-full min-h-screen"
     >
       <section className="flex flex-col justify-center px-4 py-12 md:p-16 w-full min-h-[90vh] text-gray-700 bg-white font-inter">
-        <div className="w-full mx-auto">
+        <div className="w-full max-w-[1200px] mx-auto">
           <div className="mb-16">
             <h2 className="text-4xl font-semibold tracking-tighter leading-tight text-black text-left mb-8">Our Mission</h2>
             <p className="text-xl text-left mb-6">
@@ -114,7 +129,7 @@ function AboutData() {
       className="w-full min-h-screen"
     >
       <section className="flex flex-col justify-center p-16 w-full min-h-[90vh] text-gray-700 bg-white font-inter">
-        <div className="w-full mx-auto">
+        <div className="w-full max-w-[1200px] mx-auto">
           <div className="mb-16">
             <h2 className="text-4xl font-semibold tracking-tighter leading-tight text-black text-left mb-8">
               Our Data

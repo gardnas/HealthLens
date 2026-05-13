@@ -1,6 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Public+Sans:wght@400;500;600&display=swap');
 @import "tailwindcss";
 
+.eyebrow {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+.lede {
+  font-family: var(--font-serif);
+  font-size: 22px;
+  line-height: 32px;
+  font-weight: 400;
+  color: var(--ink-soft);
+}
+
 :root {
   --ink: #1B2A41;
   --ink-soft: #3A4A60;

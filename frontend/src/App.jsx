@@ -2,6 +2,7 @@ import './App.css'
 import Home from './frontend/Home'
 import Map from './frontend/Map'
 import About from './frontend/About'
+import Primer from './frontend/Primer'
 import Resources from './frontend/Resources'
 import FAQ from './frontend/FAQ'
 import { HashRouter, Routes, Route } from 'react-router-dom'
@@ -11,6 +12,7 @@ function App() {
     <HashRouter>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/about" element={<Primer />} />
         <Route path="/About" element={<About />} />
         <Route path="/Map" element={<Map />} />
         <Route path="/map" element={<Map />} />
