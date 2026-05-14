@@ -290,12 +290,6 @@ function Primer() {
               >
                 About this project
               </Link>
-              <Link
-                to="/about"
-                style={{ color: "var(--ink-muted)", fontWeight: 500, fontSize: "14px", borderBottom: "1px solid var(--rule)", paddingBottom: "2px", textDecoration: "none" }}
-              >
-                Frequently asked questions
-              </Link>
             </div>
           </div>
         </div>

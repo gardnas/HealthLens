@@ -6,14 +6,6 @@ import tailwindcss from '@tailwindcss/vite'
 export default defineConfig({
   base: '/',
   plugins: [react(), tailwindcss()],
-  server: {
-    proxy: {
-      '/api': {
-        target: process.env.VITE_API_URL || 'https://health4all-backend-13a9.onrender.com',
-        changeOrigin: true,
-      }
-    }
-  },
   build: {
     outDir: 'dist',
     rollupOptions: {
@@ -22,7 +14,4 @@ export default defineConfig({
       }
     }
   },
-  define: {
-    'process.env.VITE_API_URL': JSON.stringify(process.env.VITE_API_URL)
-  }
 })

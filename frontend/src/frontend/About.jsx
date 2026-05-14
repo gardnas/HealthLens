@@ -328,20 +328,9 @@ function AccordionItem({ faq, isOpen, onToggle }) {
 function FAQSection() {
   const [openItem, setOpenItem] = useState(null);
   const toggle = (id) => setOpenItem(openItem === id ? null : id);
-  const ref = useRef(null);
-  const isInView = useInView(ref, { amount: 0.3 });
-  const controls = useAnimation();
-
-  useEffect(() => {
-    if (isInView) {
-      controls.start({ opacity: 1, y: 0, transition: { duration: 0.8 } });
-    } else {
-      controls.start({ opacity: 0, y: 50, transition: { duration: 0.8 } });
-    }
-  }, [isInView, controls]);
 
   return (
-    <motion.div ref={ref} initial={{ opacity: 0, y: 50 }} animate={controls} className="w-full">
+    <div className="w-full">
       <section className="w-full font-inter" style={{ backgroundColor: "var(--surface)", borderTop: "1px solid var(--rule)" }}>
         <div className="max-w-[800px] mx-auto px-10 pt-24 pb-32">
           <p
@@ -396,7 +385,7 @@ function FAQSection() {
           </div>
         </div>
       </section>
-    </motion.div>
+    </div>
   );
 }
 
