@@ -249,8 +249,9 @@ function Footer() {
           <h3 className="text-left w-full">Contact Us</h3>
         </div>
         <div className="flex flex-col items-start">
-          <a href="mailto:halleee0415@gmail.com" className="text-left mt-3 text-black hover:text-gray-600">
-            halleee0415@gmail.com
+          <p className="text-left mt-3" style={{ color: "var(--ink-soft)", fontSize: "15px", fontFamily: "var(--font-sans)" }}>Chris Moy</p>
+          <a href="mailto:cjmoy2004@gmail.com" className="text-left text-black hover:text-gray-600" style={{ fontSize: "15px", fontFamily: "var(--font-sans)" }}>
+            cjmoy2004@gmail.com
           </a>
         </div>
       </div>
