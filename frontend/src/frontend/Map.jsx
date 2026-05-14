@@ -373,7 +373,7 @@ function MapPage() {
           marginBottom: '28px',
           borderRadius: '0 2px 2px 0',
         }}>
-          <p style={{ fontFamily: 'var(--font-sans)', fontSize: '161px', color: 'var(--ink-soft)', lineHeight: 1.6, textAlign: 'left', margin: 0 }}>
+          <p style={{ fontFamily: 'var(--font-sans)', fontSize: '16px', color: 'var(--ink-soft)', lineHeight: 1.6, textAlign: 'left', margin: 0 }}>
             <strong style={{ color: 'var(--ink)' }}>Rates ≠ Risk.</strong>{' '}
             A higher detection rate often means better access to screening, not more danger. These numbers show where cancers are being found, <strong style={{color: 'var(--ink'}}>not who is most at risk.</strong>
           </p>
