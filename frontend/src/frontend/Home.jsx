@@ -340,25 +340,6 @@ function PrimerCTA() {
   );
 }
 
-function Footer() {
-  return (
-    <footer className="flex overflow-hidden flex-wrap gap-4 items-start px-8 pt-8 pb-1 w-full text-base leading-snug text-black bg-white border-t border-zinc-300 min-h-[142px] max-md:px-5 max-md:max-w-full font-inter">
-      <div className="flex flex-col items-start w-full max-w-[320px]">
-        <div className="flex flex-col self-stretch pb-4 w-full font-semibold">
-          <h3 className="text-left w-full">Contact Us</h3>
-        </div>
-        <div className="flex flex-col items-start">
-          <p className="text-left mt-3" style={{ color: "var(--ink-soft)", fontSize: "15px", fontFamily: "var(--font-sans)" }}>Chris Moy</p>
-          <a href="mailto:cjmoy2004@gmail.com" className="text-left text-black hover:text-gray-600" style={{ fontSize: "15px", fontFamily: "var(--font-sans)" }}>
-            cjmoy2004@gmail.com
-          </a>
-        </div>
-      </div>
-    </footer>
-  );
-}
-
-
 function Home() {
   return (
     <div className="w-full font-inter min-h-screen">
@@ -367,7 +348,6 @@ function Home() {
       <KingCountyGlance />
       {/* <ExploreData /> */}
       <PrimerCTA />
-      <Footer />
     </div>
   );
 }

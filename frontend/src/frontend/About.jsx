@@ -185,21 +185,63 @@ function FAQSection() {
   );
 }
 
-function Footer() {
+function ContactSection() {
   return (
-    <footer className="flex overflow-hidden flex-wrap gap-4 items-start px-8 pt-8 pb-1 w-full text-base leading-snug text-black bg-white border-t border-zinc-300 min-h-[142px] max-md:px-5 max-md:max-w-full font-inter">
-      <div className="flex flex-col items-start w-full max-w-[320px]">
-        <div className="flex flex-col self-stretch pb-4 w-full font-semibold">
-          <h3 className="text-left w-full">Contact Us</h3>
-        </div>
-        <div className="flex flex-col items-start">
-          <p className="text-left mt-3" style={{ color: "var(--ink-soft)", fontSize: "15px", fontFamily: "var(--font-sans)" }}>Chris Moy</p>
-          <a href="mailto:cjmoy2004@gmail.com" className="text-left text-black hover:text-gray-600" style={{ fontSize: "15px", fontFamily: "var(--font-sans)" }}>
-            cjmoy2004@gmail.com
-          </a>
-        </div>
+    <section style={{ backgroundColor: "var(--surface)", borderTop: "1px solid var(--rule)" }}>
+      <div className="max-w-[1200px] mx-auto px-10" style={{ paddingTop: "72px", paddingBottom: "80px" }}>
+        <p
+          style={{
+            fontFamily: "var(--font-sans)",
+            fontSize: "13px",
+            fontWeight: 600,
+            letterSpacing: "0.08em",
+            textTransform: "uppercase",
+            color: "var(--ink-muted)",
+            marginBottom: "16px",
+          }}
+        >
+          Contact
+        </p>
+        <h2
+          style={{
+            fontFamily: "var(--font-serif)",
+            fontSize: "36px",
+            lineHeight: "44px",
+            fontWeight: 600,
+            color: "var(--ink)",
+            letterSpacing: "-0.01em",
+            marginBottom: "24px",
+          }}
+        >
+          Get in touch.
+        </h2>
+        <p style={{ fontFamily: "var(--font-sans)", fontSize: "15px", color: "var(--ink-soft)", lineHeight: "24px", marginBottom: "8px" }}>
+          Chris Moy
+        </p>
+        <a
+          href="mailto:cjmoy2004@gmail.com"
+          style={{
+            fontFamily: "var(--font-sans)",
+            fontSize: "15px",
+            color: "var(--ink)",
+            textDecoration: "none",
+            borderBottom: "1px solid var(--rule)",
+            paddingBottom: "1px",
+            transition: "color 150ms ease, border-color 150ms ease",
+          }}
+          onMouseEnter={e => {
+            e.currentTarget.style.color = "var(--brand)";
+            e.currentTarget.style.borderBottomColor = "var(--brand)";
+          }}
+          onMouseLeave={e => {
+            e.currentTarget.style.color = "var(--ink)";
+            e.currentTarget.style.borderBottomColor = "var(--rule)";
+          }}
+        >
+          cjmoy2004@gmail.com
+        </a>
       </div>
-    </footer>
+    </section>
   );
 }
 
@@ -209,7 +251,7 @@ function About() {
       <Navbar />
       <Hero />
       <FAQSection />
-      <Footer />
+      <ContactSection />
     </div>
   );
 }
