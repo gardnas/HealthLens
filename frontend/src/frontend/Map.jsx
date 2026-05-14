@@ -4,12 +4,10 @@ import { MapContainer, TileLayer, useMap } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 import geoData from "./Data/geoData.json";
-import heatmapJson from "./Data/breastCancerRateData.json";
-import raceJson from "./Data/population_race.json";
-import insuranceJson from "./Data/health_insurance.json";
-import incomeJson from "./Data/median_income.json";
-import povertyJson from "./Data/poverty_population.json";
 
+// In dev, use relative URL so Vite proxy forwards to the backend (avoids CORS).
+// In production, use the full backend URL set by window.API_BASE_URL.
+const API_BASE = import.meta.env.DEV ? '' : (window.API_BASE_URL || 'https://health4all-backend-13a9.onrender.com');
 const KC_AVG = 145.2;
 
 function getBinColor(rate) {
@@ -341,14 +339,21 @@ function MapPage() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    setBreastCancerData(heatmapJson.heatmap || []);
-    setAllData({
-      race: Array.isArray(raceJson) ? raceJson : [],
-      insurance: Array.isArray(insuranceJson) ? insuranceJson : [],
-      income: Array.isArray(incomeJson) ? incomeJson : [],
-      poverty: Array.isArray(povertyJson) ? povertyJson : [],
-    });
-    setLoading(false);
+    Promise.all([
+      fetch(`${API_BASE}/api/heatmap`).then(r => r.json()).then(d => d.heatmap || []),
+      fetch(`${API_BASE}/api/demographics/population-race`).then(r => r.json()).catch(() => []),
+      fetch(`${API_BASE}/api/demographics/health-insurance`).then(r => r.json()).catch(() => []),
+      fetch(`${API_BASE}/api/demographics/median-income`).then(r => r.json()).catch(() => []),
+    ]).then(([heatmap, race, insurance, income]) => {
+      setBreastCancerData(heatmap);
+      setAllData(prev => ({ ...prev, race, insurance, income }));
+      setLoading(false);
+    }).catch(() => setLoading(false));
+
+    fetch(`${API_BASE}/api/demographics/poverty`)
+      .then(r => r.json())
+      .then(d => setAllData(prev => ({ ...prev, poverty: Array.isArray(d) ? d : [] })))
+      .catch(() => {});
   }, []);
 
   const handleSelect = useCallback((feature) => setSelected(feature), []);
@@ -368,7 +373,7 @@ function MapPage() {
           marginBottom: '28px',
           borderRadius: '0 2px 2px 0',
         }}>
-          <p style={{ fontFamily: 'var(--font-sans)', fontSize: '16px', color: 'var(--ink-soft)', lineHeight: 1.6, textAlign: 'left', margin: 0 }}>
+          <p style={{ fontFamily: 'var(--font-sans)', fontSize: '161px', color: 'var(--ink-soft)', lineHeight: 1.6, textAlign: 'left', margin: 0 }}>
             <strong style={{ color: 'var(--ink)' }}>Rates ≠ Risk.</strong>{' '}
             A higher detection rate often means better access to screening, not more danger. These numbers show where cancers are being found, <strong style={{color: 'var(--ink'}}>not who is most at risk.</strong>
           </p>
